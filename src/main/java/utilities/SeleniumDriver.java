@@ -20,6 +20,7 @@ public class SeleniumDriver {
 	public final static int PAGE_LOAD_TIMEOUT =30;
 	
 	private SeleniumDriver() {
+		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\src\\test\\resources\\executables\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		
@@ -29,9 +30,7 @@ public class SeleniumDriver {
 		
 	}
 	
-	public static void openPage(String url) {
-		driver.get(url);
-	}
+	
 	
 	public static WebDriver getDriver() {
 		return driver;
@@ -41,6 +40,10 @@ public class SeleniumDriver {
 		if(seleniumDriver==null) {
 			seleniumDriver = new SeleniumDriver();
 		}
+	}
+	
+	public static void openPage(String url) {
+		driver.get(url);
 	}
 	
 	public static void tearDown() {

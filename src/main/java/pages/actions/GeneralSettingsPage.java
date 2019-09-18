@@ -20,10 +20,18 @@ public class GeneralSettingsPage{
 		AjaxElementLocatorFactory factory = new AjaxElementLocatorFactory(SeleniumDriver.getDriver(), 10);
 		PageFactory.initElements(factory,this.settings);
 	}
-
-	public void setSiteTitle(String newtitle) {
+	
+	public void clearTitle() {
 		settings.siteTitleInput.clear();		
+		
+	}
+	
+	public void setSiteTitle(String newtitle) {
 		settings.siteTitleInput.sendKeys(newtitle);
+	}
+	
+	public void saveButtonClick() {
+	
 		settings.saveButton.click();	
 	}
 }
